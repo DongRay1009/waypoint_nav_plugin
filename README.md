@@ -9,7 +9,7 @@ Or, since I am using the simulation environment of wpr_simulation in my study, y
 roslaunch pose_get_plugin waypoint_making.launch
 //Generally, waypoint.txt is saved to the home directory<br>
  ```
-3. Implementation of navigation<br>
+2. Implementation of navigation<br>
  ```
 roslaunch wpr_simulation wpb_stage_robocup.launch <br>
 //Run the simulation environment, which can be any other gazebo environment you have.<br>
@@ -37,4 +37,9 @@ my_plugin/
 │<br>
 └── launch/
  ```
+How to add plugin to rviz
+![QQ截图20240915200608](https://github.com/user-attachments/assets/a87faaa0-d051-4ad7-a4f2-e87fddc8b725)
+
 As for why the map and marker are added to the pose_get_plugin.rviz file, if you don't have a map you don't have a map image either, and if you don't have a marker the arrows in the dae file for this plugin won't show up.
+
+
