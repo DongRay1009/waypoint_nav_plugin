@@ -1,6 +1,6 @@
 # waypoint_nav_plugin
 This is a rviz tool plugin. if you want to use it, you need to configure gazebo simulation environment first and configure nav.launch in this package.
-I implemented it so that this plugin automatically generates a waypoint.txt in the home directory after selecting the target point. And use this waypoint.txt to realize the traversal of all path points.
+I implemented it so that this plugin automatically generates a waypoint.txt in the home directory after selecting the target point. And use this waypoint.txt to realize the traversal of all path points.But there is a problem that is still not solved: there is no icon for the rviz tool plugin. I've been working on this for a couple of hours and it still doesn't work.
 
 Or, since I am using the simulation environment of wpr_simulation in my study, you can compile wpr_simulation, wpb_home and this package in the same workspace directly from GitHub.
 
