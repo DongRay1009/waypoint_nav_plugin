@@ -34,7 +34,7 @@ my_plugin/
 │   └── plugin_name.cpp
 │
 ├── rviz/
-│<br>
+│
 └── launch/
  ```
 How to add plugin to rviz
