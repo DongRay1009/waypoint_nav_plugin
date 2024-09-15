@@ -1,0 +1,8 @@
+<library path="lib/libpose_get_plugin">
+  <class name="rviz_plugin::GoalTool" type="rviz_plugin::GoalTool" base_class_type="rviz::Tool">
+    <description>
+        get pose of the goal
+    </description>
+    <icon>package://pose_get_plugin/icons/AddWaypoint.png</icon>
+  </class>
+</library>

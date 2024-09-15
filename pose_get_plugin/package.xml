@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>pose_get_plugin</name>
+  <version>0.0.0</version>
+  <description>The pose_get_plugin package</description>
+
+  <maintainer email="ray@todo.todo">ray</maintainer>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rviz</build_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>rviz</exec_depend>
+
+  <export>
+    <rviz plugin="${prefix}/plugin_description.xml"/>
+  </export>
+</package>

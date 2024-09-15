@@ -1,0 +1,7 @@
+<launch>
+  <!-- 启动map_server节点来加载地图 -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find pose_get_plugin)/maps/map.yaml" output="screen"/>
+
+  <!-- 启动RViz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find pose_get_plugin)/rviz/pose_get_plugin.rviz" output="screen"/>
+</launch>
