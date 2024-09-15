@@ -4,35 +4,34 @@ I implemented it so that this plugin automatically generates a waypoint.txt in t
 
 Or, since I am using the simulation environment of wpr_simulation in my study, you can compile wpr_simulation, wpb_home and this package in the same workspace directly from GitHub.
 
-1. Select waypoint and create waypoint.txt file
+1. Select waypoint and create waypoint.txt file<br>
+'''Bash
+roslaunch pose_get_plugin waypoint_making.launch
 '''
-**roslaunch pose_get_plugin waypoint_making.launch**
-//General, waypoint.txt is saved to the home directory
-'''
-3. Implementation of navigation
-'''
-roslaunch wpr_simulation wpb_stage_robocup.launch 
-//Run the simulation environment, which can be any other gazebo environment you have.
-roslaunch pose_get_plugin nav.launch
-//If you are using a different simulation environment, you may need to modify this file
-rosrun pose_get_plugin multi_waypoint_nav
-//After running this node the robot will start to navigate
+Generally, waypoint.txt is saved to the home directory<br>
+3. Implementation of navigation<br>
+'''Bash
+roslaunch wpr_simulation wpb_stage_robocup.launch <br>
+//Run the simulation environment, which can be any other gazebo environment you have.<br>
+roslaunch pose_get_plugin nav.launch<br>
+//If you are using a different simulation environment, you may need to modify this file<br>
+rosrun pose_get_plugin multi_waypoint_nav<br>
+//After running this node the robot will start to navigate<br>
 '''
 About the structure of the rviz plugin tool package, the option to add a new tool in rviz will appear for this plugin only if plugin_description.xml, plugin_name.cpp and plugin_name.h are configured.
-**my_plugin/
-│
-├── CMakeLists.txt
-├── package.xml
-├── plugin_description.xml
-│
-├── include/
-│   └── package_name/
-│       └── plugin_name.h
-│
-├── src/
-│   └── plugin_name.cpp
-│
-│
-├── rviz/
-│
-└── launch/**
+**my_plugin/<br>
+│<br>
+├── CMakeLists.txt<br>
+├── package.xml<br>
+├── plugin_description.xml<br>
+│<br>
+├── include/<br>
+│   └── package_name/<br>
+│       └── plugin_name.h<br>
+│<br>
+├── src/<br>
+│   └── plugin_name.cpp<br>
+│<br>
+├── rviz/<br>
+│<br>
+└── launch/**<br>
