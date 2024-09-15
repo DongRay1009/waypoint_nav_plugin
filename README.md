@@ -13,7 +13,7 @@ roslaunch pose_get_plugin waypoint_making.launch
  ```
 roslaunch wpr_simulation wpb_stage_robocup.launch
 //Run the simulation environment, which can be any other gazebo environment you have.
-roslaunch pose_get_plugin nav.launch<br>
+roslaunch pose_get_plugin nav.launch
 //If you are using a different simulation environment, you may need to modify this file
 rosrun pose_get_plugin multi_waypoint_nav
 //After running this node the robot will start to navigate
