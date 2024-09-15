@@ -37,3 +37,4 @@ my_plugin/
 │<br>
 └── launch/
  ```
+As for why the map and marker are added to the pose_get_plugin.rviz file, if you don't have a map you don't have a map image either, and if you don't have a marker the arrows in the dae file for this plugin won't show up.
