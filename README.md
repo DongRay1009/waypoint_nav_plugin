@@ -20,20 +20,20 @@ rosrun pose_get_plugin multi_waypoint_nav<br>
  ```
 About the structure of the rviz plugin tool package, the option to add a new tool in rviz will appear for this plugin only if plugin_description.xml, plugin_name.cpp and plugin_name.h are configured.<br>
  ```
-my_plugin/<br>
+my_plugin/
+│
+├── CMakeLists.txt
+├── package.xml
+├── plugin_description.xml
+│
+├── include/
+│   └── package_name/
+│       └── plugin_name.h
+│
+├── src/
+│   └── plugin_name.cpp
+│
+├── rviz/
 │<br>
-├── CMakeLists.txt<br>
-├── package.xml<br>
-├── plugin_description.xml<br>
-│<br>
-├── include/<br>
-│   └── package_name/<br>
-│       └── plugin_name.h<br>
-│<br>
-├── src/<br>
-│   └── plugin_name.cpp<br>
-│<br>
-├── rviz/<br>
-│<br>
-└── launch/<br>
+└── launch/
  ```
