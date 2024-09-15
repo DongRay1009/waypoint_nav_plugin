@@ -18,8 +18,9 @@ roslaunch pose_get_plugin nav.launch<br>
 rosrun pose_get_plugin multi_waypoint_nav<br>
 //After running this node the robot will start to navigate<br>
  ```
-About the structure of the rviz plugin tool package, the option to add a new tool in rviz will appear for this plugin only if plugin_description.xml, plugin_name.cpp and plugin_name.h are configured.
-**my_plugin/<br>
+About the structure of the rviz plugin tool package, the option to add a new tool in rviz will appear for this plugin only if plugin_description.xml, plugin_name.cpp and plugin_name.h are configured.<br>
+ ```
+my_plugin/<br>
 │<br>
 ├── CMakeLists.txt<br>
 ├── package.xml<br>
@@ -34,4 +35,5 @@ About the structure of the rviz plugin tool package, the option to add a new too
 │<br>
 ├── rviz/<br>
 │<br>
-└── launch/**<br>
+└── launch/<br>
+ ```
