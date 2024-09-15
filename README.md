@@ -7,16 +7,16 @@ Or, since I am using the simulation environment of wpr_simulation in my study, y
 1. Select waypoint and create waypoint.txt file<br>
  ```
 roslaunch pose_get_plugin waypoint_making.launch
-//Generally, waypoint.txt is saved to the home directory<br>
+//Generally, waypoint.txt is saved to the home directory
  ```
 2. Implementation of navigation<br>
  ```
-roslaunch wpr_simulation wpb_stage_robocup.launch <br>
-//Run the simulation environment, which can be any other gazebo environment you have.<br>
+roslaunch wpr_simulation wpb_stage_robocup.launch
+//Run the simulation environment, which can be any other gazebo environment you have.
 roslaunch pose_get_plugin nav.launch<br>
-//If you are using a different simulation environment, you may need to modify this file<br>
-rosrun pose_get_plugin multi_waypoint_nav<br>
-//After running this node the robot will start to navigate<br>
+//If you are using a different simulation environment, you may need to modify this file
+rosrun pose_get_plugin multi_waypoint_nav
+//After running this node the robot will start to navigate
  ```
 About the structure of the rviz plugin tool package, the option to add a new tool in rviz will appear for this plugin only if plugin_description.xml, plugin_name.cpp and plugin_name.h are configured.<br>
  ```
