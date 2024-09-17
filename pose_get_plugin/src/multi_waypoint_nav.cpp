@@ -9,6 +9,7 @@
 
 struct Waypoint
 {
+  int id;
   double x, y, z;
   double qx, qy, qz, qw;
 };
@@ -30,7 +31,7 @@ std::vector<Waypoint> loadWaypoints(const std::string& filename)
     line_number++;
     std::istringstream iss(line);
     Waypoint waypoint;
-    if (!(iss >> waypoint.x >> waypoint.y >> waypoint.z >> waypoint.qx >> waypoint.qy >> waypoint.qz >> waypoint.qw))
+    if (!(iss >> waypoint.id >> waypoint.x >> waypoint.y >> waypoint.z >> waypoint.qx >> waypoint.qy >> waypoint.qz >> waypoint.qw))
     {
       ROS_ERROR_STREAM("Failed to parse line " << line_number << ": " << line);
       continue;
@@ -65,7 +66,6 @@ int main(int argc, char** argv)
   ac.waitForServer();
   ROS_INFO("move_base action server started.");
 
-  int waypoint_index = 0;
   for (const auto& waypoint : waypoints)
   {
     move_base_msgs::MoveBaseGoal goal;
@@ -79,7 +79,7 @@ int main(int argc, char** argv)
     goal.target_pose.pose.orientation.z = waypoint.qz;
     goal.target_pose.pose.orientation.w = waypoint.qw;
 
-    ROS_INFO_STREAM("Sending goal: " << waypoint.x << ", " << waypoint.y << ", " << waypoint.z);
+    ROS_INFO_STREAM("Sending goal ID " << waypoint.id << ": " << waypoint.x << ", " << waypoint.y << ", " << waypoint.z);
     ac.sendGoal(goal);
 
     // 等待机器人到达目标点
@@ -87,12 +87,11 @@ int main(int argc, char** argv)
 
     if (ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
     {
-      waypoint_index++;
-      ROS_INFO_STREAM("Completed waypoint " << waypoint_index << " of " << waypoints.size());
+      ROS_INFO_STREAM("Completed waypoint ID " << waypoint.id << " of " << waypoints.size());
     }
     else
     {
-      ROS_WARN_STREAM("Failed to reach waypoint " << waypoint_index + 1);
+      ROS_WARN_STREAM("Failed to reach waypoint ID " << waypoint.id);
     }
   }
 

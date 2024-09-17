@@ -4,6 +4,9 @@ project(pose_get_plugin)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rviz
+  geometry_msgs
+  visualization_msgs
+  tf
 )
 
 find_package(Qt5 REQUIRED COMPONENTS Widgets)
@@ -11,14 +14,23 @@ find_package(Qt5 REQUIRED COMPONENTS Widgets)
 catkin_package()
 
 include_directories(
+  include
   ${catkin_INCLUDE_DIRS}
   ${Qt5Widgets_INCLUDE_DIRS}
 )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}")
 
-add_library(${PROJECT_NAME} src/goal_tool.cpp src/waypoint_saver.cpp)
-target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} Qt5::Widgets)
+add_library(${PROJECT_NAME}
+  src/goal_tool.cpp
+  src/waypoint_saver.cpp
+  src/marker_manager.cpp
+)
+
+target_link_libraries(${PROJECT_NAME}
+  ${catkin_LIBRARIES}
+  Qt5::Widgets
+)
 
 install(TARGETS ${PROJECT_NAME}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
