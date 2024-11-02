@@ -32,6 +32,9 @@ my_plugin/
 │
 ├── src/
 │   └── plugin_name.cpp
+├── maps/
+│
+├── meshes/
 │
 ├── rviz/
 │
@@ -39,6 +42,8 @@ my_plugin/
  ```
 How to add plugin to rviz
 ![QQ截图20240915200608](https://github.com/user-attachments/assets/a87faaa0-d051-4ad7-a4f2-e87fddc8b725)
+
+
 
 As for why the map and marker are added to the pose_get_plugin.rviz file, if you don't have a map you don't have a map image either, and if you don't have a marker the arrows in the dae file for this plugin won't show up.
 
