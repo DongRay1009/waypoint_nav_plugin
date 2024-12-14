@@ -1,0 +1,31 @@
+<launch>
+    <!-- Ensure the robot hardware interface node is started -->
+    <node pkg="robot_hardware_interface" type="hardware_interface_node" name="hardware_interface_node"/>
+
+    <!-- Ensure the TF tree is correctly published -->
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0 0 0 0 0 0 base_link laser 100"/>
+
+    <!-- Ensure sensor data is correctly published -->
+    <node pkg="sensor_driver_pkg" type="sensor_driver_node" name="sensor_driver_node"/>
+
+    <!-- The above three parts are for starting all hardware, usually in bringup.launch -->
+    
+    <!-- Run move_base, you need to replace these parameters with your real machine's files -->
+    <node pkg="move_base" type="move_base" name="move_base">
+        <rosparam file="$(find your_param_package)/params/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find your_param_package)/params/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find your_param_package)/params/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find your_param_package)/params/local_costmap_params.yaml" command="load" />
+        <param name="base_global_planner" value="global_planner/GlobalPlanner" /> 
+        <param name="base_local_planner" value="wpbh_local_planner/WpbhLocalPlanner" />
+    </node>
+
+    <!-- Run map server -->
+    <node pkg="map_server" type="map_server" name="map_server" args="$(find pose_get_plugin)/maps/map.yaml"/>
+
+    <!-- Run AMCL -->
+    <node pkg="amcl" type="amcl" name="amcl"/>
+
+    <!-- Run RViz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find pose_get_plugin)/rviz/nav.rviz"/>
+</launch>
