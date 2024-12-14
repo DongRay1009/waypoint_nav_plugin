@@ -15,8 +15,9 @@ roslaunch wpr_simulation wpb_stage_robocup.launch
 //Run the simulation environment, which can be any other gazebo environment you have.
 roslaunch pose_get_plugin nav.launch
 //If you are using a different simulation environment, you may need to modify this file
+//And for those who want to apply this into reality, you can check the nav_into_real.launch and change the params inthe move_base node.
 rosrun pose_get_plugin multi_waypoint_nav
-//After running this node the robot will start to navigate
+//After running this node the robot will start to navigate, and you may need to change the path to the txt file in multi_waypoint_nav.cpp.
  ```
 About the structure of the rviz plugin tool package, the option to add a new tool in rviz will appear for this plugin only if plugin_description.xml, plugin_name.cpp and plugin_name.h are configured.<br>
  ```
