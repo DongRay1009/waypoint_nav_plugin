@@ -49,7 +49,7 @@ int main(int argc, char** argv)
   ros::init(argc, argv, "multi_waypoint_nav");
   ros::NodeHandle nh;
 
-  std::string filename = "/home/ray/waypoints.txt"; // 修改为你的waypoints.txt路径
+  std::string filename = "/home/ray/waypoints.txt"; // Modify to your waypoints.txt path
   std::vector<Waypoint> waypoints = loadWaypoints(filename);
 
   if (waypoints.empty())
@@ -58,10 +58,10 @@ int main(int argc, char** argv)
     return 1;
   }
 
-  // 创建一个SimpleActionClient，用于与move_base通信
+  // Create a SimpleActionClient to communicate with move_base
   actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> ac("move_base", true);
 
-  // 等待move_base action server启动
+  // Wait for the move_base action server to start
   ROS_INFO("Waiting for move_base action server to start...");
   ac.waitForServer();
   ROS_INFO("move_base action server started.");
@@ -82,7 +82,7 @@ int main(int argc, char** argv)
     ROS_INFO_STREAM("Sending goal ID " << waypoint.id << ": " << waypoint.x << ", " << waypoint.y << ", " << waypoint.z);
     ac.sendGoal(goal);
 
-    // 等待机器人到达目标点
+    // Wait for the robot to reach the target point
     ac.waitForResult();
 
     if (ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
